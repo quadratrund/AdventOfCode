@@ -1,6 +1,6 @@
 const { readFileSync } = require('fs');
 
-const buffer = readFileSync('input-a3.txt');
+const buffer = readFileSync('input-day3.txt');
 const text = buffer.toString('utf8').split('\n').filter(Boolean); //.map(line => line.split(''));
 //console.log(text);
 

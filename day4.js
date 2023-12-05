@@ -1,6 +1,6 @@
 const { readFileSync } = require('fs');
 
-const buffer = readFileSync('input-a4.txt');
+const buffer = readFileSync('input-day4.txt');
 const text = buffer.toString('utf8').split('\n').filter(Boolean);
 
 const cards = text.map(line => {
