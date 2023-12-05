@@ -19,26 +19,26 @@ for (const section of sections) {
   currentRanges = currentRanges.flatMap(r => {
     const maps = section.filter(m => m.src < r.start + r.len && m.src + m.len > r.start);
     const resultRanges = [];
-    while (r.len > 0) {
-      const lowestMap = maps.pop();
-      if (!lowestMap) {
-        resultRanges.push(r);
-        break;
-      } else {
-        if (lowestMap.src > r.start) {
-          resultRanges.push({ start: r.start, length: lowestMap.src - r.start });
-        }
-        const mapEndExclusive = lowestMap.src + lowestMap.len;
-        const translatedStart = r.start - lowestMap.src + lowestMap.dst;
-        if (mapEndExclusive >= r.start + r.len) {
-          resultRanges.push({ start: translatedStart, len: r.len });
-          break;
-        } else {
-          const len = mapEndExclusive - r.start;
-          resultRanges.push({ start: translatedStart, len });
-          r = { start: r.start + len, len: r.len - len };
-        }
+    let lowestMap;
+    while (lowestMap = maps.pop()) {
+      if (lowestMap.src > r.start) {
+        const len = lowestMap.src - r.start
+        resultRanges.push({ start: r.start, len });
+        r = { start: lowestMap.src, len: r.len - len };
       }
+      const mapEndExclusive = lowestMap.src + lowestMap.len;
+      const translatedStart = r.start - lowestMap.src + lowestMap.dst;
+      if (mapEndExclusive >= r.start + r.len) {
+        resultRanges.push({ start: translatedStart, len: r.len });
+        r = { start: 0, len: 0 };
+      } else {
+        const len = mapEndExclusive - r.start;
+        resultRanges.push({ start: translatedStart, len });
+        r = { start: r.start + len, len: r.len - len };
+      }
+    }
+    if (r.len > 0) {
+      resultRanges.push(r);
     }
     return resultRanges;
   })
