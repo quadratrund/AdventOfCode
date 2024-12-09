@@ -1,6 +1,4 @@
-const { readFileSync } = require('fs');
-
-const map = readFileSync('input-day8.txt').toString('utf8').split('\n').filter(Boolean);
+const map = require('../load-input')().split('\n').filter(Boolean);
 const allAntennas = {};
 for (const [y, row] of map.entries()) {
   for (const [x, frequency] of row.split('').entries()) {

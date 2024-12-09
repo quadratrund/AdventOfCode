@@ -1,6 +1,4 @@
-const { readFileSync } = require('fs');
-
-const originalMap = readFileSync('input-day6.txt').toString('utf8').split('\n').filter(Boolean);
+const originalMap = require('../load-input')().split('\n').filter(Boolean);
 const yStart = originalMap.findIndex(row => row.includes('^'));
 const xStart = originalMap[yStart].indexOf('^');
 

@@ -1,6 +1,4 @@
-const { readFileSync } = require('fs');
-
-const map = readFileSync('input-day9.txt').toString('utf8').replaceAll('\n', '').split('').map(Number);
+const map = require('../load-input')().replaceAll('\n', '').split('').map(Number);
 let movedSize = 0;
 let lastFileIndex = map.length - 1;
 lastFileIndex -= lastFileIndex % 2;

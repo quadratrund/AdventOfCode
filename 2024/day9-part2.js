@@ -1,6 +1,4 @@
-const { readFileSync } = require('fs');
-
-const map = readFileSync('input-day9.txt').toString('utf8').replaceAll('\n', '').split('').map((x, i) =>
+const map = require('../load-input')().replaceAll('\n', '').split('').map((x, i) =>
   i % 2
   ? { type: 'free', size: Number(x) }
   : { type: 'file', size: Number(x), id: i / 2 }

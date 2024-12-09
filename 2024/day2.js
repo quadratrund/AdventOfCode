@@ -1,7 +1,4 @@
-const { readFileSync } = require('fs');
-
-const buffer = readFileSync('input-day2.txt');
-const reports = buffer.toString('utf8').split('\n').filter(Boolean).map(report => report.split(/\s+/).map(Number));
+const reports = require('../load-input')().split('\n').filter(Boolean).map(report => report.split(/\s+/).map(Number));
 
 /**
  * @param {number[]} report

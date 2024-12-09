@@ -1,6 +1,4 @@
-const { readFileSync } = require('fs');
-
-const equations = readFileSync('input-day7.txt').toString('utf8').split('\n')
+const equations = require('../load-input')().split('\n')
   .filter(Boolean)
   .map(line => line.split(/:?\s/).map(Number))
   .map(([result, ...values]) => ({result, values}));

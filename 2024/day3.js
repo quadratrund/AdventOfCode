@@ -1,7 +1,4 @@
-const { readFileSync } = require('fs');
-
-const buffer = readFileSync('input-day3.txt');
-const memory = buffer.toString('utf8');
+const memory = require('../load-input')();
 const regex1 = /mul\((\d{1,3}),(\d{1,3})\)/g;
 const matches1 = Array.from(memory.matchAll(regex1));
 const multiplications1 = matches1.map(match => [Number(match[1]), Number(match[2])]);
