@@ -1,4 +1,4 @@
-const equations = require('../load-input')().split('\n')
+const equations = require('../misc/load-input')().split('\n')
   .filter(Boolean)
   .map(line => line.split(/:?\s/).map(Number))
   .map(([result, ...values]) => ({result, values}));

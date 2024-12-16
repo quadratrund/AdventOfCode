@@ -1,4 +1,4 @@
-const map = require('../load-input')().replaceAll('\n', '').split('').map((x, i) =>
+const map = require('../misc/load-input')().replaceAll('\n', '').split('').map((x, i) =>
   i % 2
   ? { type: 'free', size: Number(x) }
   : { type: 'file', size: Number(x), id: i / 2 }

@@ -1,4 +1,4 @@
-const map = require('../load-input')().split('\n').filter(Boolean).map(line => line.split(''));
+const map = require('../misc/load-input')().split('\n').filter(Boolean).map(line => line.split(''));
 let nextId = 1;
 const regionAreas = {};
 const regionSideCounts = {};

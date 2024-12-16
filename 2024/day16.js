@@ -28,7 +28,7 @@ class Reindeer extends Vector {
   }
 }
 
-const map = require('../load-input')().split('\n').filter(Boolean).map(line => line.split(''));
+const map = require('../misc/load-input')().split('\n').filter(Boolean).map(line => line.split(''));
 const start = new Reindeer(1, map.length - 2, Vector.east, 0);
 const end = new Vector(map[0].length - 2, 1);
 

@@ -1,5 +1,5 @@
 const regex = /^p=(-?\d+),(-?\d+) v=(-?\d+),(-?\d+)$/;
-const robots = require('../load-input')().split('\n')
+const robots = require('../misc/load-input')().split('\n')
   .filter(Boolean)
   .map(line => line.match(regex).map(Number))
   .map(([ , px, py, vx, vy ]) => ({ px, py, vx, vy }));

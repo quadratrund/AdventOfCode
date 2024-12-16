@@ -1,4 +1,4 @@
-const originalMap = require('../load-input')().split('\n').filter(Boolean);
+const originalMap = require('../misc/load-input')().split('\n').filter(Boolean);
 const yStart = originalMap.findIndex(row => row.includes('^'));
 const xStart = originalMap[yStart].indexOf('^');
 

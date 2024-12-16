@@ -1,5 +1,5 @@
 const Vector = require('../misc/vector');
-const input = require('../load-input')().split('\n\n');
+const input = require('../misc/load-input')().split('\n\n');
 input[0] = input[0].replaceAll('#', '##').replaceAll('O', '[]').replaceAll('.', '..').replaceAll('@', '@.');
 const map = input[0].split('\n').map(line => line.split(''));
 const moves = input[1].replaceAll('\n', '').split('');

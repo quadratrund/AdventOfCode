@@ -1,4 +1,4 @@
-const parsedText = require('../load-input')().split('\n').filter(Boolean).map(line => line.split(/\s+/).map(Number));
+const parsedText = require('../misc/load-input')().split('\n').filter(Boolean).map(line => line.split(/\s+/).map(Number));
 const list1 = parsedText.map(line => line[0]).sort((a, b) => a - b);
 const list2 = parsedText.map(line => line[1]).sort((a, b) => a - b);
 const distances = list1.map((value, index) => Math.abs(value - list2[index]));

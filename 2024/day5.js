@@ -1,4 +1,4 @@
-const parts = require('../load-input')().split('\n\n').map(part => part.split('\n').filter(Boolean));
+const parts = require('../misc/load-input')().split('\n\n').map(part => part.split('\n').filter(Boolean));
 const rules = parts[0].map(line => line.split('|').map(Number));
 const updates = parts[1].map(line => line.split(',').map(Number));
 const updateInfos = updates.map(update => ({

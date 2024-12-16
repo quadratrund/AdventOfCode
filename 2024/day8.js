@@ -1,4 +1,4 @@
-const map = require('../load-input')().split('\n').filter(Boolean);
+const map = require('../misc/load-input')().split('\n').filter(Boolean);
 const allAntennas = {};
 for (const [y, row] of map.entries()) {
   for (const [x, frequency] of row.split('').entries()) {

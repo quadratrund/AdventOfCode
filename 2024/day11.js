@@ -1,4 +1,4 @@
-const initialStones = require('../load-input')().replaceAll('\n', '').split(' ');
+const initialStones = require('../misc/load-input')().replaceAll('\n', '').split(' ');
 
 function interateStone(stone) {
   if (stone === '0') {

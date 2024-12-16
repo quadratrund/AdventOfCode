@@ -1,4 +1,4 @@
-const input = require('../load-input')().split('\n').filter(Boolean);
+const input = require('../misc/load-input')().split('\n').filter(Boolean);
 const aPos = input.flatMap((line, y) => line.split('').map((char, x) => ({char, x})).filter(({char}) => char === 'A').map(({x}) => ({ x, y })));
 
 /**

@@ -1,4 +1,4 @@
-const memory = require('../load-input')();
+const memory = require('../misc/load-input')();
 const regex1 = /mul\((\d{1,3}),(\d{1,3})\)/g;
 const matches1 = Array.from(memory.matchAll(regex1));
 const multiplications1 = matches1.map(match => [Number(match[1]), Number(match[2])]);

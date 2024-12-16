@@ -1,4 +1,4 @@
-const map = require('../load-input')().split('\n').filter(Boolean).map(line => line.split('').map(Number));
+const map = require('../misc/load-input')().split('\n').filter(Boolean).map(line => line.split('').map(Number));
 const scores = new Map();
 const ratings = new Map();
 

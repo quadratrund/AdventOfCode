@@ -1,5 +1,5 @@
 const regex = /Button A: X\+(\d+), Y\+(\d+)\nButton B: X\+(\d+), Y\+(\d+)\nPrize: X=(\d+), Y=(\d+)/;
-const machines = require('../load-input')().split('\n\n')
+const machines = require('../misc/load-input')().split('\n\n')
   .map(section => section.match(regex))
   .map(section => section.map(Number))
   .map(([ , ax, ay, bx, by, x, y ]) => ({ ax, ay, bx, by, x, y }));

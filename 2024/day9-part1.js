@@ -1,4 +1,4 @@
-const map = require('../load-input')().replaceAll('\n', '').split('').map(Number);
+const map = require('../misc/load-input')().replaceAll('\n', '').split('').map(Number);
 let movedSize = 0;
 let lastFileIndex = map.length - 1;
 lastFileIndex -= lastFileIndex % 2;
