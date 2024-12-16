@@ -1,25 +1,10 @@
+const Vector = require('../misc/vector');
 const input = require('../load-input')().split('\n\n');
 const map = input[0].split('\n').map(line => line.split(''));
 const moves = input[1].replaceAll('\n', '').split('');
 const initialY = map.findIndex(row => row.includes('@'));
 const initialX = map[initialY].indexOf('@');
 map[initialY][initialX] = '.';
-
-class Vector {
-  static north = new Vector( 0, -1);
-  static east  = new Vector( 1,  0);
-  static south = new Vector( 0,  1);
-  static west  = new Vector(-1,  0);
-
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  plus(other) {
-    return new Vector(this.x + other.x, this.y + other.y);
-  }
-}
 
 function getField(position) {
   return map[position.y][position.x];
@@ -38,7 +23,7 @@ const directions = {
 let robot = new Vector(initialX, initialY);
 for (const move of moves) {
   const direction = directions[move];
-  const destination = robot.plus(direction);
+  const destination = robot.add(direction);
   switch(getField(destination)) {
     case '#':
       break;
@@ -48,7 +33,7 @@ for (const move of moves) {
     case 'O':
       let behindTheBox = destination;
       while (getField(behindTheBox) === 'O') {
-        behindTheBox = behindTheBox.plus(direction);
+        behindTheBox = behindTheBox.add(direction);
       }
       if (getField(behindTheBox) === '.') {
         setField(behindTheBox, 'O');

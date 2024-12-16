@@ -1,3 +1,4 @@
+const Vector = require('../misc/vector');
 const input = require('../load-input')().split('\n\n');
 input[0] = input[0].replaceAll('#', '##').replaceAll('O', '[]').replaceAll('.', '..').replaceAll('@', '@.');
 const map = input[0].split('\n').map(line => line.split(''));
@@ -5,34 +6,6 @@ const moves = input[1].replaceAll('\n', '').split('');
 const initialY = map.findIndex(row => row.includes('@'));
 const initialX = map[initialY].indexOf('@');
 map[initialY][initialX] = '.';
-
-class Vector {
-  static north = new Vector( 0, -1);
-  static east  = new Vector( 1,  0);
-  static south = new Vector( 0,  1);
-  static west  = new Vector(-1,  0);
-
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  add(other) {
-    return new Vector(this.x + other.x, this.y + other.y);
-  }
-
-  multiply(other) {
-    if (typeof other === 'number') {
-      return new Vector(this.x * other, this.y * other);
-    } else {
-      return this.x * other.x + this.y * other.y;
-    }
-  }
-
-  toString() {
-    return this.x + '|' +  this.y;
-  }
-}
 
 class BoxFieldCheck {
   boxFields = [];
