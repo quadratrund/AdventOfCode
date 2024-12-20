@@ -13,6 +13,10 @@ class Vector {
     return new Vector(this.x + other.x, this.y + other.y);
   }
 
+  equals(other) {
+    return other instanceof Vector && this.x === other.x && this.y === other.y;
+  }
+
   multiply(other) {
     if (typeof other === 'number') {
       return new Vector(this.x * other, this.y * other);
